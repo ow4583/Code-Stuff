@@ -1,0 +1,76 @@
+int n = 30;
+float[]changer2  = new float [n];
+float[]thething2  = new float [n];
+float[]diam2  = new float [n];
+float[] xval = new float [n];
+float[]yval  = new float [n];
+void setup() {
+  size(800, 600);
+
+  for (int i = 0; i < n; i++) {
+    changer2[i]=random(1, 10);
+    thething2[i]=600;
+    diam2[i]=600;
+    xval[i]=random(100, 700);
+    yval[i]=random(100, 500);
+  }
+}
+void draw() {
+
+  background(0);
+
+  for (int x=0; x<n; x++) {
+    circle(xval[x], yval[x], diam2[x]);
+    println(diam2[x]);
+    diam2[x]-=changer2[x];
+    if (diam2[x]<= 0) {
+      diam2[x] = thething2[x];
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
