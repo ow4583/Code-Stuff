@@ -1,0 +1,48 @@
+float x=200, y=0, dia=150, fs=2;
+int gamestate=0;//0 = start screen 1=playing  2= lose  3 = win
+int score=0;
+void setup() {
+  size(400, 900);
+}
+void draw() {
+  background(0);
+  text(score, 300, 300);
+  textSize(20);
+  if (dia < 150) {
+    fs=fs+0.1;
+  }
+  if (score==5) {
+    gamestate=3;
+  }
+  switch(gamestate) {
+  case 1:
+    circle(x, y, dia);
+    y=y+fs;
+    if (y>height) {
+      gamestate=2;
+    }
+    break;
+  case 0:
+    text("space to begin, click inside circle 5 times", 1,400);
+
+    break;
+  case 2:
+    text("YOU LOST *cries*", width/2, height/2);
+    break;
+  case 3: 
+    text("YOU WIN*gives professinal gamer award*",1,400);
+    break;
+  }
+  println(dia);
+}
+void keyPressed() {
+  if (key==' ') {
+    gamestate=1;
+  }
+}
+void mousePressed() {
+  if (dist(x, y, mouseX, mouseY) < dia/2) {
+    dia=dia *  0.75;
+    score=score+1;
+  }
+}
